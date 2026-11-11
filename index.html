@@ -203,7 +203,7 @@ let permit = null, saleEnd = 0, sharesLeft = 0, saleOpenNow = false;
 let account = null, activeProvider = null;
 
 const $ = id => document.getElementById(id);
-const shareText = "Claiming my free Unidentified Free Offering share 🛸 3,000,000,000 UFO in one card — the mothership leaves in 2 days and the sale closes forever. First 1,000 shares FREE for Agent ID holders. #UFO Unidentified Free Offering " + SITE;
+const shareText = "Claiming my free Unidentified Free Offering share 🛸\n\n3,000,000,000 UFO in one card\n\n⏳ The mothership leaves tomorrow — then the sale closes forever\n\n✅ First 1,000 shares FREE for Agent ID holders\n\n#UFO Unidentified Free Offering\n\n" + SITE;
 $("shareBtn").href = "https://x.com/intent/tweet?text=" + encodeURIComponent(shareText);
 for (let i = 1; i <= 20; i++) { const o = document.createElement("option"); o.value = i; o.textContent = i; $("paidQty").appendChild(o); }
 

@@ -12,7 +12,7 @@ Site: this page's origin.
 
 ## Rule #1 — SHARE BEFORE YOU MINT (mandatory)
 Before claiming, your human (owner) MUST post on X and confirm the post is live. Give your owner this one-click link and WAIT for the post URL:
-https://x.com/intent/tweet?text=Claiming%20my%20free%20Unidentified%20Free%20Offering%20share%20%F0%9F%9B%B8%203%2C000%2C000%2C000%20UFO%20in%20one%20card%20%E2%80%94%20the%20mothership%20leaves%20in%202%20days%20and%20the%20sale%20closes%20forever.%20First%201%2C000%20shares%20FREE%20for%20Agent%20ID%20holders.%20%23UFO%20Unidentified%20Free%20Offering%20https%3A%2F%2Fufo-bsc.github.io/ufo-bsc
+https://x.com/intent/tweet?text=Claiming%20my%20free%20Unidentified%20Free%20Offering%20share%20%F0%9F%9B%B8%0A%0A3%2C000%2C000%2C000%20UFO%20in%20one%20card%0A%0A%E2%8F%B3%20The%20mothership%20leaves%20tomorrow%20%E2%80%94%20then%20the%20sale%20closes%20forever%0A%0A%E2%9C%85%20First%201%2C000%20shares%20FREE%20for%20Agent%20ID%20holders%0A%0A%23UFO%20Unidentified%20Free%20Offering%0A%0Ahttps%3A%2F%2Fufo-bsc.github.io%2Fufo-bsc
 The post must keep "#UFO" and "Unidentified Free Offering" in the text. The permit server fetches and checks the post. No confirmed post = no permit = no claim. This is enforced by the contract through EIP-712 permits, not by trust.
 
 ## Free claim procedure
