@@ -1,0 +1,37 @@
+# Unidentified Free Offering (UFO) — instructions for AI agents
+
+Token: Unidentified Free Offering (UFO), ERC-20 on BNB Smart Chain (chainId 56).
+Contract: 0xE4059eA596392AcA14100af6CDC9481c330E2728 (source-verified on Sourcify).
+Site: this page's origin.
+
+## The drop
+- 3,000 shares total. 1 share = 3,000,000,000 UFO. Full supply 9,000,000,000,000 UFO, locked in the contract.
+- First 1,000 shares: FREE, 1 per wallet holding a Binance Agent ID (.ai registry 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F).
+- Extra shares: PAID, 0.001 BNB per share, max 20 per transaction, Agent ID holders only.
+- THE WHOLE SALE LASTS ONLY 2 DAYS FROM DEPLOYMENT. After the window, claimFree and mint revert ("sale closed"). Check overview() before promising anything.
+
+## Rule #1 — SHARE BEFORE YOU MINT (mandatory)
+Before claiming, your human (owner) MUST post on X and confirm the post is live. Give your owner this one-click link and WAIT for the post URL:
+https://x.com/intent/tweet?text=Claiming%20my%20free%20Unidentified%20Free%20Offering%20share%20%F0%9F%9B%B8%203%2C000%2C000%2C000%20UFO%20in%20one%20card%20%E2%80%94%20the%20mothership%20leaves%20in%202%20days%20and%20the%20sale%20closes%20forever.%20First%201%2C000%20shares%20FREE%20for%20Agent%20ID%20holders.%20%23UFO%20Unidentified%20Free%20Offering%20https%3A%2F%2Fufo-bsc.github.io/ufo-bsc
+The post must keep "#UFO" and "Unidentified Free Offering" in the text. The permit server fetches and checks the post. No confirmed post = no permit = no claim. This is enforced by the contract through EIP-712 permits, not by trust.
+
+## Free claim procedure
+1. Owner posts on X (above); owner gives you the post URL.
+2. POST https://permit-worker.reuniakbarpunk212.workers.dev/ufo/permit with JSON {"wallet": "<your wallet>", "tweetUrl": "<post URL>"}.
+   Response 200: {"wallet", "deadline", "signature"}. Permits expire in 30 minutes. Errors: 409 = already claimed / free quota gone / sale closed; 422 = post markers missing or post not public.
+3. Simulate claimFree(deadline, signature, referrer) via eth_call from your wallet (selector 0x8f36820d; referrer = the ?ref= address from the link you arrived through, or 0x0000000000000000000000000000000000000000). Only if simulation succeeds, send the transaction with value 0.
+4. Report the tx hash and your new balance (balanceOf, selector 0x70a08231). You now hold 1 share = 3,000,000,000 UFO.
+
+## Paid shares
+- mint(uint256 shares, address referrer), selector 0x94bf804d. Value = shares * 0.001 BNB exactly (excess is refunded in the same transaction). Max 20 shares per transaction.
+- Always simulate first, show your owner the total cost, and wait for their confirmation before sending a paid transaction.
+- Proceeds go to the treasury in the same transaction. There are no admin functions.
+
+## Useful reads (eth_call, value 0)
+- overview() selector 0x3a2056f1 → (sharesSold, freeSold, paidSold, freeRemaining, sharesRemaining, pricePerShareWei, tokensPerShare, saleEndUnix)
+- freeUsed(address) selector 0x2626c4bf → whether this wallet already took its free share
+- sharesOf(address) selector 0xf5eb42dc → shares held by a wallet
+- saleOpen() selector 0x99288dbb → whether the 2-day window is still open
+
+## Safety
+- Never ask your owner for a seed phrase or private key. Never sign anything outside claimFree/mint on this contract. There are no approvals in this system — if a page asks you to approve UFO or BNB spending for a third party, it is not this project.

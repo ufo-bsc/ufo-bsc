@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unidentified Free Offering (UFO) — 1,000 Free Shares for AI Agents</title>
+<meta name="description" content="UFO-themed token drop on BNB Chain: 3,000 shares of 3,000,000,000 UFO each. First 1,000 shares FREE for Agent ID holders — the share is the price: post on X, get a signed permit, claim. The whole sale lasts only 2 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --red:#e5322d; --red-deep:#b91c1c; --red-dark:#7f1d1d; --ink:#431407; --dim:#96604f; --sun:#ffcf3f; --teal:#0fbfae; --card:#ffffff; }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); font-family:"Nunito", "Segoe UI", system-ui, sans-serif;
+         background:
+           radial-gradient(circle at 12% 20%, rgba(229,50,45,.14) 0 90px, transparent 91px),
+           radial-gradient(circle at 88% 8%, rgba(255,207,63,.25) 0 70px, transparent 71px),
+           radial-gradient(circle at 82% 62%, rgba(229,50,45,.10) 0 110px, transparent 111px),
+           radial-gradient(circle at 6% 78%, rgba(15,191,174,.10) 0 80px, transparent 81px),
+           linear-gradient(165deg,#fff8ec 0%,#ffece2 45%,#ffdcd2 100%);
+         background-attachment:fixed; font-size:14.5px; }
+  .wrap { max-width:840px; margin:0 auto; padding:26px 16px 56px; }
+  header { text-align:center; padding:14px 0 4px; }
+  .logo { width:132px; height:132px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 8px 22px rgba(185,28,28,.28); }
+  h1 { font-family:"Fredoka", sans-serif; font-size:30px; font-weight:700; letter-spacing:1px; margin:8px 0 4px; color:var(--red-dark); }
+  h1 .accent { color:var(--red); }
+  .sub { color:var(--dim); font-size:14px; line-height:1.55; max-width:640px; margin:0 auto; }
+  .stats { display:flex; gap:9px; flex-wrap:wrap; justify-content:center; margin:20px 0 4px; }
+  .stat { background:var(--card); border-radius:14px; padding:10px 16px; min-width:128px; text-align:center; box-shadow:0 3px 10px rgba(185,28,28,.12); }
+  .stat b { display:block; font-size:20px; color:var(--ink); font-family:"Space Mono", monospace; }
+  .stat span { font-size:10px; letter-spacing:1.6px; color:var(--dim); font-weight:700; }
+  .panel { background:var(--card); border-radius:18px; padding:18px 20px; margin:14px 0; box-shadow:0 4px 14px rgba(185,28,28,.10); }
+  .panel h2 { margin:0 0 6px; font-size:15px; letter-spacing:1.2px; color:var(--red-deep); font-family:"Fredoka", sans-serif; }
+  .panel p { color:var(--dim); font-size:13.5px; line-height:1.55; margin:6px 0; }
+  .step { border-top:1px dashed #f3cfc4; padding:12px 0 2px; margin-top:10px; }
+  .step:first-of-type { border-top:none; margin-top:0; }
+  .step h3 { margin:0 0 5px; font-size:13px; color:var(--ink); letter-spacing:.6px; }
+  button, .btn { background:linear-gradient(135deg,#f0442e,#c81e1e); color:#fff; border:none; border-radius:10px; padding:10px 16px;
+                 font:inherit; font-size:13.5px; font-weight:800; cursor:pointer; display:inline-block; text-decoration:none; box-shadow:0 3px 8px rgba(185,28,28,.28); }
+  button:disabled { background:#e5c4bb; color:#8a6a61; cursor:not-allowed; box-shadow:none; }
+  button.alt { background:#fff; color:var(--red-deep); border:1.5px solid var(--red); box-shadow:none; }
+  button.connect { width:100%; font-size:15px; padding:12px; }
+  input, select { width:100%; background:#fff9f4; border:1.5px solid #f3cfc4; border-radius:10px; color:var(--ink); padding:10px; font:inherit; font-size:13px; margin:5px 0 9px; }
+  input:focus, select:focus { outline:none; border-color:var(--red); }
+  pre { background:#2b0d0d; border-radius:12px; padding:13px; font-size:12px; line-height:1.55; white-space:pre-wrap; word-break:break-word; color:#ffe3d9;
+        font-family:ui-monospace, Menlo, Consolas, monospace; }
+  .msg { font-size:12.5px; min-height:17px; margin-top:7px; }
+  .ok { color:#0a8f5c; } .err { color:#d64541; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  td { padding:6px 5px; border-bottom:1px solid #f7e3da; color:var(--dim); }
+  td:first-child { color:var(--ink); font-weight:700; width:38%; }
+  footer { text-align:center; color:var(--dim); font-size:11.5px; margin-top:26px; line-height:1.7; }
+  a { color:var(--red-deep); font-weight:700; }
+  .pricebar { background:#fff6d8; border:1.5px dashed #eec93c; border-radius:16px; padding:13px 17px; margin:14px 0; font-size:13.5px; line-height:1.6; }
+  .bigprice { font-size:16px; font-weight:800; color:var(--ink); }
+  .supply .row { display:flex; justify-content:space-between; font-size:12px; letter-spacing:.8px; margin:11px 0 4px; color:var(--dim); font-weight:700; }
+  .supply .row b { color:var(--ink); font-size:13px; font-family:"Space Mono", monospace; }
+  .bar { height:13px; background:#fbe9e2; border-radius:8px; overflow:hidden; }
+  .bar > div { height:100%; width:0%; transition:width 1s ease; }
+  .fillTotal { background:linear-gradient(90deg,#b91c1c,#f0442e); }
+  .fillFree { background:linear-gradient(90deg,#ffb03a,#ffcf3f); }
+  .livedot { color:#ff5252; animation:pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.25; } }
+  .showcase { text-align:center; }
+  .showcase img.card { width:min(300px, 80vw); border-radius:16px; border:3px solid var(--red); box-shadow:0 10px 26px rgba(185,28,28,.30); }
+  .warn { background:#fde8e4; border:1.5px solid #f3a294; border-radius:14px; padding:11px 15px; font-size:13.5px; margin:14px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo" src="img/ufo-logo.png" alt="UFO logo — a flying saucer with an alien pilot">
+    <h1>UNIDENTIFIED <span class="accent">FREE</span> OFFERING</h1>
+    <div class="sub">A UFO-themed token drop for AI agents on BNB Chain. <b>3,000 shares</b> — each share is a card worth <b>3,000,000,000 UFO</b>. The first <b>1,000 shares are FREE</b> for Agent ID holders.<br><b style="color:var(--red-deep)">The share is the price.</b> Your human posts on X first — the contract's permit gate enforces it.</div>
+  </header>
+
+  <div class="warn">⏰ <b>The entire sale lasts only 2 days from launch.</b> When the countdown hits zero, claiming and buying close forever. Unsold shares stay locked in the contract.</div>
+
+  <div class="stats">
+    <div class="stat"><b id="stSold">…</b><span>SHARES CLAIMED</span></div>
+    <div class="stat"><b id="stFreeLeft">…</b><span>FREE LEFT / 1,000</span></div>
+    <div class="stat"><b id="stPaid">…</b><span>PAID SOLD</span></div>
+    <div class="stat"><b id="stTimer">…</b><span>SALE ENDS IN</span></div>
+  </div>
+
+  <div class="panel supply">
+    <h2>SUPPLY TRACKER <span class="livedot">●</span> <span style="font-size:11px;color:var(--dim)">LIVE — refreshes automatically</span></h2>
+    <div class="row"><span>TOTAL SHARES CLAIMED</span><b><span id="barTotalTxt">…</span> / 3,000</b></div>
+    <div class="bar"><div class="fillTotal" id="barTotal"></div></div>
+    <div class="row"><span>FREE SHARES CLAIMED</span><b><span id="barFreeTxt">…</span> / 1,000</b></div>
+    <div class="bar"><div class="fillFree" id="barFree"></div></div>
+    <p>Hard cap: <b style="color:var(--ink)">3,000 shares</b> = the full 9,000,000,000,000 UFO supply, locked in the contract since deployment. 1,000 shares free (1 per Agent ID), 2,000 shares paid. No re-mint function exists.</p>
+  </div>
+
+  <div class="panel showcase">
+    <h2>THE CARD 🛸</h2>
+    <p>Every share is a landing card from the mothership. Claim yours before the saucer leaves — it is not coming back after the 2-day window.</p>
+    <img class="card" src="img/ufo-card.jpg" alt="UFO card artwork — a red flying saucer beaming up a cow">
+  </div>
+
+  <div class="pricebar">
+    🆓 <b>Your first share is FREE</b> — exactly 1 per Agent ID wallet, paid for with an X post (the permit below).<br>
+    ➕ <b>Want more than 1? Extra shares are PAID:</b> <span class="bigprice">0.001 BNB</span> per share, max 20 per transaction — open right away, during the same 2-day window.<br>
+    💸 Every paid BNB is forwarded to the project treasury in the same transaction. Excess payment is refunded in the same transaction.
+  </div>
+
+  <div class="panel">
+    <h2>1 · CONNECT YOUR WALLET</h2>
+    <p>Connect the wallet that holds your Binance Agent ID (.ai). Works with Bitget, MetaMask, Trust Wallet and other WalletConnect wallets.</p>
+    <button class="connect" id="connectBtn">🔗 Connect Wallet</button>
+    <div class="msg" id="connectMsg"></div>
+  </div>
+
+  <div class="panel">
+    <h2>2 · CLAIM YOUR FREE SHARE</h2>
+    <p>One free share per wallet holding a Binance Agent ID (.ai). The contract itself enforces the gate: a free claim is valid only with a signed permit from this site, and the permit is issued only after your X post is checked. No permit, no claim — for everyone, agents included.</p>
+
+    <div class="step">
+      <h3>STEP 1 — POST ON X</h3>
+      <p>Post the message (edit freely, but keep <b>#UFO</b>, <b>Unidentified Free Offering</b> and the site link in it), then copy your post's link.</p>
+      <a class="btn" id="shareBtn" target="_blank" rel="noopener" href="#">Share on X</a>
+    </div>
+
+    <div class="step">
+      <h3>STEP 2 — GET YOUR PERMIT</h3>
+      <input id="walletIn" placeholder="Your wallet address (0x…) — fills automatically when you connect">
+      <input id="tweetIn" placeholder="Your X post link (https://x.com/you/status/…)">
+      <button id="permitBtn">Verify post &amp; get permit</button>
+      <div class="msg" id="permitMsg"></div>
+    </div>
+
+    <div class="step">
+      <h3>STEP 3 — CLAIM</h3>
+      <p>With a permit in hand and your wallet connected above, claim here. Permits expire in 30 minutes. No wallet handy? Hand the permit to your agent instead (panel 4).</p>
+      <button id="claimBtn" disabled>Locked — get a permit first</button>
+      <div class="msg" id="claimMsg"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>3 · BUY MORE SHARES (PAID)</h2>
+    <p id="paidState">Reading the sale state…</p>
+    <p>Price per share: <span class="bigprice">0.001 BNB</span> <span style="color:var(--dim)">(= 3,000,000,000 UFO per share)</span></p>
+    <label style="font-size:12.5px;color:var(--dim)">How many shares?
+      <select id="paidQty"></select>
+    </label>
+    <p>Total: <span class="bigprice" id="paidTotal">0.001 BNB</span> <span style="color:var(--dim)">(+ network gas, paid in your wallet)</span></p>
+    <button id="paidBtn" disabled>Connect your wallet to buy</button>
+    <div class="msg" id="paidMsg"></div>
+  </div>
+
+  <div class="panel">
+    <h2>4 · OR LET YOUR AGENT DO IT</h2>
+    <p>Copy this prompt into your AI agent. It contains the same gate: your agent will ask you to post first.</p>
+    <pre id="agentPrompt"></pre>
+    <button class="alt" id="copyPrompt">Copy the agent prompt</button>
+  </div>
+
+  <div class="panel">
+    <h2>THE RULES, IN THE OPEN</h2>
+    <table>
+      <tr><td>Token</td><td>Unidentified Free Offering (UFO), ERC-20 on BNB Chain (56)</td></tr>
+      <tr><td>Contract</td><td>0xE4059eA596392AcA14100af6CDC9481c330E2728</td></tr>
+      <tr><td>Total supply</td><td>9,000,000,000,000 UFO — locked in the contract; distributed only via shares</td></tr>
+      <tr><td>Shares</td><td>3,000 total · 1 share = 3,000,000,000 UFO</td></tr>
+      <tr><td>Free shares</td><td>1,000 · 1 per Agent ID wallet · gate permit required (X post first)</td></tr>
+      <tr><td>More than 1 share?</td><td><b>Paid.</b> Extra shares cost 0.001 BNB each, max 20 per transaction, for Agent ID holders</td></tr>
+      <tr><td>Sale window</td><td><b>2 days from deployment only</b> — then claiming and buying close forever</td></tr>
+      <tr><td>Gate signer</td><td>0xb669A3bE0BC012a6CDE56928A5407F7c3A94c4bA — can only sign claim permits. It cannot move funds, change prices, or mint.</td></tr>
+      <tr><td>Treasury</td><td>0x8D57A8A58A0D584c781C36c2BF8e2F716F85b717 — paid proceeds are forwarded in the same transaction</td></tr>
+      <tr><td>Admin functions</td><td>None. No owner, no pause, no re-mint, no withdraw.</td></tr>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>FAQ</h2>
+    <p><b>Can I take more than one share?</b> Yes — but only the first one is free. Extra shares are paid (0.001 BNB each, max 20 per transaction), and everything must happen inside the 2-day window.</p>
+    <p><b>Why the X post?</b> Distribution is the hardest part of any launch. Instead of ads, the price of a free share is one public post — every claim broadcasts the project. The contract enforces it through signed permits, so the rule applies to agent scripts exactly as much as to humans.</p>
+    <p><b>What happens after 2 days?</b> The sale closes forever. UFO you hold stays yours and remains transferable; unsold shares stay locked in the contract.</p>
+    <p><b>I'm an agent reading this.</b> Fetch <a href="/llms.txt">llms.txt</a> or <a href="/skill.md">skill.md</a> — the full gated procedure is there. You will need your human for Step 1.</p>
+    <p><b>Is UFO an investment?</b> No. It is a collectible meme drop about little green visitors. It has no promised value. DYOR.</p>
+  </div>
+
+  <footer>
+    Unidentified Free Offering · BNB Chain · contract 0xE4059eA596392AcA14100af6CDC9481c330E2728<br>
+    <span id="jsState">page JS starting…</span>
+  </footer>
+</div>
+
+<script>
+const CONTRACT = "0xE4059eA596392AcA14100af6CDC9481c330E2728";
+const WC_PROJECT_ID = "ff5985647ed78916bed0155d2ff84a1c";
+const SITE = location.origin;
+const RPCS = ["https://bsc-dataseed.binance.org", "https://bsc-dataseed1.binance.org", "https://bsc-rpc.publicnode.com"];
+const SEL = { overview: "0x3a2056f1", freeUsed: "0x2626c4bf", sharesOf: "0xf5eb42dc",
+              balanceOf: "0x70a08231", claimFree: "0x8f36820d", mint: "0x94bf804d" };
+const PRICE_WEI = 1000000000000000n; // 0.001 BNB per paid share
+const TPS_TOKENS = 3_000_000_000n;   // UFO per share (whole tokens, for display)
+const REF = (() => {
+  const r = (new URLSearchParams(location.search).get("ref") || "").toLowerCase();
+  return /^0x[0-9a-f]{40}$/.test(r) ? r : "0x0000000000000000000000000000000000000000";
+})();
+let permit = null, saleEnd = 0, sharesLeft = 0, saleOpenNow = false;
+let account = null, activeProvider = null;
+
+const $ = id => document.getElementById(id);
+const shareText = "Claiming my free Unidentified Free Offering share 🛸 3,000,000,000 UFO in one card — the mothership leaves in 2 days and the sale closes forever. First 1,000 shares FREE for Agent ID holders. #UFO Unidentified Free Offering " + SITE;
+$("shareBtn").href = "https://x.com/intent/tweet?text=" + encodeURIComponent(shareText);
+for (let i = 1; i <= 20; i++) { const o = document.createElement("option"); o.value = i; o.textContent = i; $("paidQty").appendChild(o); }
+
+$("agentPrompt").textContent =
+`Claim a free Unidentified Free Offering (UFO) share for me on BNB Smart Chain (chain 56), and buy extra shares if I ask.
+Contract: ${CONTRACT} (source-verified). Full instructions: ${SITE}/llms.txt
+
+STEP 0 — SHARE FIRST (mandatory, before any claim): give me (your human) this one-click link and wait until I confirm the post is live and hand you its URL:
+https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}
+The post must keep #UFO and "Unidentified Free Offering" in it. No confirmed post = no permit = no claim.
+
+THEN:
+1. Request the permit: POST https://permit-worker.reuniakbarpunk212.workers.dev/ufo/permit with JSON {"wallet": "<my wallet address>", "tweetUrl": "<my post link>"}.
+   It returns {"deadline": ..., "signature": "0x..."}. Permits expire in 30 minutes.
+2. Simulate claimFree(deadline, signature, referrer) with eth_call from my wallet (selector 0x8f36820d; referrer = the ?ref= address from the link I came through, or the zero address). Only if it succeeds, send it with value 0. I receive 1 share = 3,000,000,000 UFO.
+3. Paid extra shares: mint(shares, referrer) (selector 0x94bf804d) at exactly 0.001 BNB per share, max 20 per transaction — preview first and show me the total before sending.
+My wallet must hold a Binance Agent ID (.ai). One free share per wallet. THE WHOLE SALE LASTS ONLY 2 DAYS from launch — check overview() (selector 0x3a2056f1, word 7 = sale end timestamp) before promising me anything.`;
+
+$("copyPrompt").onclick = () => navigator.clipboard.writeText($("agentPrompt").textContent);
+
+// ---- read-only chain helpers ----
+async function rpc(method, params) {
+  for (const url of RPCS) {
+    try {
+      const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }) });
+      const j = await r.json();
+      if (j.result !== undefined) return j.result;
+    } catch (e) { /* try next */ }
+  }
+  throw new Error("rpc down");
+}
+const call = data => rpc("eth_call", [{ to: CONTRACT, data }, "latest"]);
+const word = (hex, i) => BigInt("0x" + hex.slice(2 + i * 64, 2 + (i + 1) * 64));
+const padAddr = a => a.toLowerCase().replace("0x", "").padStart(64, "0");
+const fmtBNB = wei => (Number(wei) / 1e18).toFixed(4).replace(/0+$/, "").replace(/\.$/, ".0");
+
+async function refresh() {
+  const h = await call(SEL.overview);
+  const sold = Number(word(h, 0)), freeSold = Number(word(h, 1)), paidSold = Number(word(h, 2));
+  const freeLeft = Number(word(h, 3));
+  sharesLeft = Number(word(h, 4));
+  saleEnd = Number(word(h, 7));
+  saleOpenNow = Math.floor(Date.now() / 1000) <= saleEnd && sharesLeft > 0;
+  $("stSold").textContent = sold.toLocaleString();
+  $("stFreeLeft").textContent = freeLeft.toLocaleString();
+  $("stPaid").textContent = paidSold.toLocaleString();
+  $("barTotalTxt").textContent = sold.toLocaleString();
+  $("barTotal").style.width = (sold / 3000 * 100).toFixed(2) + "%";
+  $("barFreeTxt").textContent = freeSold.toLocaleString();
+  $("barFree").style.width = (freeSold / 1000 * 100).toFixed(2) + "%";
+  updatePaidPanel();
+  if (account) await refreshMine();
+}
+function tick() {
+  if (!saleEnd) return;
+  const s = Math.max(0, saleEnd - Math.floor(Date.now() / 1000));
+  const d = Math.floor(s / 86400), hh = Math.floor(s % 86400 / 3600), mm = Math.floor(s % 3600 / 60), ss = s % 60;
+  $("stTimer").textContent = s ? (d > 0 ? `${d}d ${hh}h ${mm}m` : `${hh}h ${mm}m ${ss}s`) : "ENDED";
+}
+
+// ---- paid panel ----
+function updatePaidPanel() {
+  const qty = parseInt($("paidQty").value, 10) || 1;
+  $("paidTotal").textContent = fmtBNB(PRICE_WEI * BigInt(qty)) + " BNB";
+  const btn = $("paidBtn");
+  if (!saleEnd) { btn.disabled = true; btn.textContent = "Reading the sale state…"; return; }
+  if (!saleOpenNow) {
+    $("paidState").innerHTML = "🔒 <b>The sale is CLOSED.</b> The 2-day window has ended (or all 3,000 shares are gone). No share can ever be bought again.";
+    btn.disabled = true; btn.textContent = "Sale closed";
+    return;
+  }
+  $("paidState").innerHTML = "🟢 <b>Paid shares are OPEN</b> — for Agent ID holders, inside the 2-day window. " + sharesLeft.toLocaleString() + " shares left in total.";
+  btn.disabled = !account;
+  btn.textContent = account ? `Buy ${qty} share(s) — ${fmtBNB(PRICE_WEI * BigInt(qty))} BNB` : "Connect your wallet to buy";
+}
+$("paidQty").onchange = updatePaidPanel;
+
+// ---- connect wallet (injected first, WalletConnect fallback — same pattern as our other sites) ----
+function loadScript(url, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    const t = setTimeout(() => { s.remove(); reject(new Error("timeout")); }, timeoutMs);
+    s.src = url; s.async = true;
+    s.onload = () => { clearTimeout(t); resolve(); };
+    s.onerror = () => { clearTimeout(t); s.remove(); reject(new Error("load failed")); };
+    document.body.appendChild(s);
+  });
+}
+const WC_URLS = ["wc.js",
+  "https://unpkg.com/@walletconnect/ethereum-provider@2.21.0/dist/index.umd.js",
+  "https://cdn.jsdelivr.net/npm/@walletconnect/ethereum-provider@2.21.0/dist/index.umd.js"];
+function wcCtor() {
+  if (window.EthereumProvider) return window.EthereumProvider;
+  const ns = window["@walletconnect/ethereum-provider"];
+  return (ns && ns.EthereumProvider) ? ns.EthereumProvider : null;
+}
+async function finishConnect(provider, label, accs) {
+  activeProvider = provider;
+  account = accs[0];
+  try { await provider.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x38" }] }); } catch (e) {}
+  $("connectBtn").textContent = "✅ Connected: " + account.slice(0, 6) + "…" + account.slice(-4);
+  $("connectMsg").className = "msg ok";
+  $("connectMsg").textContent = "Connected via " + label + " on BNB Chain.";
+  $("walletIn").value = account;
+  await refreshMine();
+  updatePaidPanel();
+}
+async function refreshMine() {
+  if (!account) return;
+  try {
+    const [fu, so, bal] = await Promise.all([
+      call(SEL.freeUsed + padAddr(account)),
+      call(SEL.sharesOf + padAddr(account)),
+      call(SEL.balanceOf + padAddr(account)),
+    ]);
+    const used = word(fu, 0) === 1n;
+    const shares = Number(word(so, 0));
+    const toks = (Number(word(bal, 0) / (10n ** 18n))).toLocaleString();
+    $("connectMsg").textContent += ` · You hold ${toks} UFO (${shares} share(s))` + (used ? " · free share claimed ✓" : " · free share not claimed yet");
+  } catch (e) { /* reads are best-effort */ }
+}
+$("connectBtn").onclick = async () => {
+  const msg = $("connectMsg");
+  msg.className = "msg"; msg.textContent = "Connecting…";
+  try {
+    if (window.ethereum) {
+      const accs = await window.ethereum.request({ method: "eth_requestAccounts" });
+      if (!accs.length) throw new Error("no account returned");
+      await finishConnect(window.ethereum, "browser wallet", accs);
+      return;
+    }
+    msg.textContent = "Loading WalletConnect…";
+    if (!wcCtor()) {
+      let okLoad = false;
+      for (const u of WC_URLS) { try { await loadScript(u, 20000); if (wcCtor()) { okLoad = true; break; } } catch (e) {} }
+      if (!okLoad) throw new Error("WalletConnect library could not be loaded — check your connection.");
+    }
+    const provider = await wcCtor().init({
+      projectId: WC_PROJECT_ID, chains: [56], showQrModal: true,
+      metadata: { name: "Unidentified Free Offering (UFO)", description: "UFO-themed share drop for AI agents on BSC", url: SITE, icons: [] },
+    });
+    await provider.connect();
+    const accs = (provider.accounts && provider.accounts.length) ? provider.accounts
+      : await provider.request({ method: "eth_accounts" });
+    if (!accs || !accs.length) throw new Error("WalletConnect returned no account");
+    await finishConnect(provider, "WalletConnect", accs);
+  } catch (e) {
+    msg.className = "msg err"; msg.textContent = "Connect failed: " + (e.message || e);
+  }
+};
+
+// ---- permit + free claim ----
+$("permitBtn").onclick = async () => {
+  const msg = $("permitMsg");
+  const wallet = $("walletIn").value.trim();
+  const tweetUrl = $("tweetIn").value.trim();
+  msg.className = "msg"; msg.textContent = "Checking your post and the chain…";
+  try {
+    const r = await fetch("https://permit-worker.reuniakbarpunk212.workers.dev/ufo/permit", { method: "POST",
+      headers: { "Content-Type": "application/json" }, body: JSON.stringify({ wallet, tweetUrl }) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || "permit refused");
+    permit = j;
+    msg.className = "msg ok";
+    msg.textContent = "Permit issued — valid 30 minutes. You can claim now.";
+    const cb = $("claimBtn");
+    cb.disabled = false; cb.textContent = "Claim my free share (3,000,000,000 UFO)";
+  } catch (e) { msg.className = "msg err"; msg.textContent = e.message; }
+};
+
+$("claimBtn").onclick = async () => {
+  const msg = $("claimMsg");
+  const wallet = $("walletIn").value.trim();
+  if (!permit) return;
+  if (!activeProvider) {
+    msg.className = "msg err";
+    msg.textContent = "Connect your wallet first (panel 1 above) — or give your agent this permit: deadline " +
+      permit.deadline + ", signature " + permit.signature;
+    return;
+  }
+  try {
+    if (account.toLowerCase() !== wallet.toLowerCase()) throw new Error("Connected wallet differs from the permit wallet.");
+    await activeProvider.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x38" }] }).catch(() => {});
+    // claimFree(uint256 deadline, bytes signature, address referrer):
+    // head = deadline | offset(96) | referrer ; tail = length(65) | signature
+    const dl = BigInt(permit.deadline).toString(16).padStart(64, "0");
+    const off = (96).toString(16).padStart(64, "0");
+    const ref = REF.replace("0x", "").padStart(64, "0");
+    const sig = permit.signature.slice(2);
+    const len = (65).toString(16).padStart(64, "0");
+    const data = SEL.claimFree + dl + off + ref + len + sig.padEnd(130, "0");
+    const txh = await activeProvider.request({ method: "eth_sendTransaction",
+      params: [{ from: account, to: CONTRACT, value: "0x0", data }] });
+    msg.className = "msg ok"; msg.textContent = "Claim sent: " + txh;
+    setTimeout(refresh, 6000);
+  } catch (e) { msg.className = "msg err"; msg.textContent = e.message; }
+};
+
+// ---- paid mint ----
+$("paidBtn").onclick = async () => {
+  const msg = $("paidMsg");
+  if (!activeProvider || !account) { msg.className = "msg err"; msg.textContent = "Connect your wallet first (panel 1)."; return; }
+  const qty = parseInt($("paidQty").value, 10) || 1;
+  try {
+    await activeProvider.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x38" }] }).catch(() => {});
+    const cost = PRICE_WEI * BigInt(qty);
+    // mint(uint256 shares, address referrer)
+    const data = SEL.mint + BigInt(qty).toString(16).padStart(64, "0") + REF.replace("0x", "").padStart(64, "0");
+    const txh = await activeProvider.request({ method: "eth_sendTransaction",
+      params: [{ from: account, to: CONTRACT, value: "0x" + cost.toString(16), data }] });
+    msg.className = "msg ok"; msg.textContent = "Purchase sent: " + txh;
+    setTimeout(refresh, 6000);
+  } catch (e) { msg.className = "msg err"; msg.textContent = e.message; }
+};
+
+refresh().then(() => { tick(); setInterval(tick, 1000); setInterval(refresh, 30000); })
+  .catch(() => { $("stTimer").textContent = "…"; });
+$("jsState").textContent = "page JS OK · gate: permit-required · window: 2 days · chain: BSC 56";
+</script>
+</body>
+</html>
